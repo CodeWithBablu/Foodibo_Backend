@@ -8,6 +8,7 @@ import Stripe from "stripe";
 const app = express();
 
 // const URL = process.env.BASE_URL;
+const PORT = process.env.PORT || 5002;
 
 app.use(cors({
   methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
