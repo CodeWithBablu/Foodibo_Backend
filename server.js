@@ -7,7 +7,7 @@ import Stripe from "stripe";
 
 const app = express();
 
-const URL = process.env.BASE_URL;
+// const URL = process.env.BASE_URL;
 
 app.use(cors({
   methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
@@ -18,7 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.listen(PORT, () => {
-  console.log(`Server Running on Port ${URL}`);
+  console.log(`Server Running`);
+  // console.log(`Server Running on Port ${URL}`);
 })
 
 const stripe = new Stripe(`${process.env.STRIPI_SECRET_KEY}`);
@@ -29,6 +30,7 @@ app.post('/stripe', async (req, res) => {
 
   if (req.body.user) {
     try {
+
       //create checkout session
 
       const stripeCusId = req.body.user['http://127.0.0.1:5173/stripe_customer_id'];
